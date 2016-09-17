@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 //  Root API
-app.get('/', function(){
+app.get('/', function() {
 
     res.status(200).json({
         data: "ROOT API"
