@@ -13,7 +13,7 @@ var controllersPath = process.cwd() + '/app/controllers';
 fs = require('fs');
 
 //  Get our controllers modules
-fs.readdirSync(controllersPath).forEach(function(file) {
+fs.readdirSync(controllersPath).forEach( (file) => {
     if (file.indexOf('.js') !== -1) {
         controllers[file.split('.')[0]] = require(controllersPath + '/' + file);
     }
@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 //  Root API
-app.get('/', function() {
+app.get('/', (req, res) => {
 
     res.status(200).json({
         data: "ROOT API"
@@ -33,6 +33,6 @@ app.get('/', function() {
 });
 
 //  Boots server
-app.listen(PORT, function() {
+app.listen(PORT, () => {
     console.log('Server is functional on ' + PORT + ' port on ' + process.env.NODE_ENV + " environment.");
 });
