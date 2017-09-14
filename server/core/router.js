@@ -1,11 +1,12 @@
-const login = require('../controllers/login');
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const router = express.Router();
-const bodyParser = require('body-parser').json();
+router.use(bodyParser.json());
 
-router.use(bodyParser);
-
-router.get('/', (req, res) => {res.status(200).json({msg: 'oi'})});
+//  Placeholder API
+router.get('/', (req, res) => {
+  res.status(200).json({msg: 'Hi!'});
+});
 
 module.exports = router;

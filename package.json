@@ -4,20 +4,29 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npm-run-all --parallel env_setup server_development",
-    "server_development": "nodemon tools/serverDevelopment.js",
-    "env_setup": "node tools/env_setup.js"
+    "start": "node tools/startServer.js",
+    "prod": "npm run env_setup_production && npm run server_production",
+    "dev": "npm run env_setup_development && npm run server_development",
+    "env_setup_production": "node tools/envProduction.js",
+    "server_production": "node -r dotenv/config tools/startServer.js",
+    "env_setup_development": "node tools/envDevelopment.js",
+    "server_development": "nodemon tools/startServer.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.17.2",
+    "body-parser": "^1.15.2",
     "dotenv": "^4.0.0",
-    "express": "^4.15.3"
+    "express": "^4.14.0",
+    "mongoose": "^4.6.0",
+    "rollbar": "^2.2.7",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "mocha": "^3.0.2",
+    "morgan": "^1.8.2",
+    "nodemon": "^1.12.0",
     "supertest": "^2.0.0"
   }
 }
