@@ -15,9 +15,8 @@ const filename = '.env',
  */ 
 const envVars = {
     NODE_ENV: 'development',
-    PORT: 3200,
-    HOST: 'http://localhost:3200',
-    ROLLBAR: '029c43b16ce741908dd1561814793f2b',
+    PORT: 3100,
+    HOST: 'http://localhost:3100',
     PASSWORD_ENCRYPTATION: 'DEV_ENCRYPTATION_SIMPLE_KEY',
     USER_DATA_ENCRYPTATION: 'DEV_USER_DATA_ENCRYPTATION',
     TOKEN_ENCRYPTATION: 'DEV_TOKEN_ENCRYPTATION'

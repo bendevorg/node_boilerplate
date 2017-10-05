@@ -15,8 +15,7 @@ const filename = '.env',
  */ 
 const envVars = {
     NODE_ENV: 'production',
-    PORT: 3200,
-    ROLLBAR: '029c43b16ce741908dd1561814793f2b'
+    PORT: 3100
 };
 
 console.log('checking file ' + filename);
