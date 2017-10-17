@@ -13,10 +13,7 @@ const filename = '.env',
  * Constant that will contain the .env variables
  * If you want a new environment variable on build add here
  */ 
-const envVars = {
-    NODE_ENV: 'production',
-    PORT: 3100
-};
+const envVars = require('./environment_vars.json')[process.argv[2]];
 
 console.log('checking file ' + filename);
 /**
