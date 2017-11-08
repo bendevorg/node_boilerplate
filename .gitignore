@@ -70,3 +70,6 @@ typings/
 
 # Mac files
 .DS_Store
+
+# Credentials folder
+.credentials/

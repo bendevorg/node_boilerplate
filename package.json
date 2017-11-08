@@ -1,15 +1,15 @@
 {
   "name": "boilerplate",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node tools/startServer.js",
     "prod": "npm run env_setup_production && npm run server_production",
     "dev": "npm run env_setup_development && npm run server_development",
-    "env_setup_production": "node tools/envProduction.js",
+    "env_setup_production": "node tools/setupEnv.js production",
     "server_production": "node -r dotenv/config tools/startServer.js",
-    "env_setup_development": "node tools/envDevelopment.js",
+    "env_setup_development": "node tools/setupEnv.js development",
     "server_development": "nodemon tools/startServer.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

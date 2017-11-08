@@ -12,6 +12,9 @@ Rollbar.info("Post published", {postId: 123});
 const Rollbar = require('rollbar');
 const rollbar = new Rollbar({
   accessToken: process.env.ROLLBAR,
+  verbose: true,
+  captureUncaught: true,
+  captureUnhandledRejections: true,
   handleUncaughtExceptions: true,
   handleUnhandledRejections: true,
   payload: {
