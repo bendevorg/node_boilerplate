@@ -21,7 +21,7 @@ let configVars = [];
  * If you want a new environment variable on build add here
  */
 
-if (fs.existsSync('./environment.json'))
+if (fs.existsSync(process.cwd() + '/tools/environment.json'))
   configVars.push(require('./environment.json'[process.argv[2]]));
 
 // Get our routers
