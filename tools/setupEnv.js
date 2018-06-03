@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /* eslint-disable no-console */
 
@@ -25,10 +25,12 @@ if (fs.existsSync(process.cwd() + '/tools/environment.json'))
   configVars.push(require('./environment.json'[process.argv[2]]));
 
 // Get our routers
-fs.readdirSync(credentialsPath).forEach(file => {
-  if (file.indexOf('.json') !== -1)
-    configVars.push(require(credentialsPath + '/' + file)[process.argv[2]]);
-});
+if (fs.existsSync(credentialsPath)) {
+  fs.readdirSync(credentialsPath).forEach(file => {
+    if (file.indexOf('.json') !== -1)
+      configVars.push(require(credentialsPath + '/' + file)[process.argv[2]]);
+  });
+}
 
 console.log('checking file ' + filename);
 /**
@@ -37,16 +39,14 @@ console.log('checking file ' + filename);
  */
 fs.stat(file, onStat);
 
-
 /**
  * Check if the .env already exists. If it does read it
  * If it don't create it with the envVars
- * 
- * @param {object} err 
+ *
+ * @param {object} err
  * @param {object} stats
  */
 function onStat(err, stats) {
-
   if (!err && stats.isFile()) {
     readFile();
   } else {
@@ -60,7 +60,7 @@ function onStat(err, stats) {
  * Used if the .env already doest not exists
  */
 function createFile() {
-  fs.writeFile(file, '', function (err) {
+  fs.writeFile(file, '', function(err) {
     if (err) return console.error(err);
 
     readFile();
