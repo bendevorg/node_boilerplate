@@ -11,7 +11,9 @@
     "server_production": "node -r dotenv/config tools/startServer.js",
     "env_setup_development": "node tools/setupEnv.js development",
     "server_development": "nodemon tools/startServer.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run env_setup_production && nyc --reporter=html --reporter=text mocha test/runTests.js --timeout 10000",
+    "test_dev": "npm run env_setup_development && nyc --reporter=html --reporter=text mocha test/runTests.js --timeout 10000",
+    "coverage": "nyc report --reporter=text-lcov | codacy-coverage && rm -rf ./coverage"
   },
   "author": "",
   "license": "ISC",
@@ -23,9 +25,16 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
-    "mocha": "^3.0.2",
-    "morgan": "^1.8.2",
-    "nodemon": "^1.12.0",
-    "supertest": "^2.0.0"
+    "chai": "4.1.2",
+    "codacy-coverage": "3.0.0",
+    "eslint": "4.19.1",
+    "eslint-plugin-node": "6.0.1",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-plugin-import": "2.12.0",
+    "eslint-plugin-promise": "3.8.0",
+    "eslint-plugin-standard": "3.1.0",
+    "mocha": "5.2.0",
+    "nyc": "12.0.1",
+    "supertest": "3.1.0"
   }
 }
