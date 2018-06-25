@@ -22,7 +22,7 @@ let configVars = [];
  */
 
 if (fs.existsSync(process.cwd() + '/tools/environment.json'))
-  configVars.push(require('./environment.json'[process.argv[2]]));
+  configVars.push(require(process.cwd() + '/tools/environment.json')[process.argv[2]]);
 
 // Get our routers
 if (fs.existsSync(credentialsPath)) {
