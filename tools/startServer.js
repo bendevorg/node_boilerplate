@@ -15,7 +15,7 @@ if (SSL) {
   https
     .createServer(SSL, app)
     .listen(PORT, () => {
-      console.info('🌎  Server is listening on port %s.', PORT);
+      console.info('🌎  Server is listening on port %s with SSL.', PORT);
     });
 } else {
   app.listen(PORT, error => {
