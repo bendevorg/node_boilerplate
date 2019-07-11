@@ -23,17 +23,18 @@
     "express": "4.16.4"
   },
   "devDependencies": {
-    "morgan": "^1.9.0",
-    "nodemon": "^1.17.5",
+    "apidoc": "0.17.7",
     "chai": "4.2.0",
     "codacy-coverage": "3.4.0",
     "eslint": "5.14.1",
-    "eslint-plugin-node": "8.0.1",
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-plugin-import": "2.16.0",
+    "eslint-plugin-node": "8.0.1",
     "eslint-plugin-promise": "4.0.1",
     "eslint-plugin-standard": "4.0.0",
     "mocha": "6.0.2",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.17.5",
     "nyc": "13.3.0",
     "supertest": "3.4.2"
   }
