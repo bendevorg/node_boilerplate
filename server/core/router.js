@@ -1,17 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const fs = require('fs');
-
-const router = express.Router();
-router.use(bodyParser.json());
+const retrieveRouters = require('../utils/retrieveRouters');
 
 const routersPath = process.cwd() + '/server/core/routers';
 
-// Get our routers
-fs.readdirSync(routersPath).forEach(file => {
-  if (file.indexOf('.js') !== -1)
-    router.use('/' + file.split('.')[0], require(routersPath + '/' + file));
-});
+let router = express.Router();
+router.use(bodyParser.json());
+router = retrieveRouters(router, routersPath);
 
 // Placeholder API
 router.get('/', (req, res) => {

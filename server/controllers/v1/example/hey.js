@@ -4,7 +4,6 @@
  * @apiGroup Example
  * @apiVersion 0.0.1
  *
- * 
  * @apiParam {String} Example Example's body string
  * @apiParamExample {json} Request-example:
  * {
