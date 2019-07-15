@@ -18,8 +18,8 @@ const retrieveRouters = (router, routersPath, currentPath = false) => {
     currentPath = routersPath;
   fs.readdirSync(currentPath).forEach(file => {
     if (file.indexOf('.js') !== -1) {
-      let routeName = currentPath.length !== routersPath ?
-      currentPath.substring(routersPath.length, currentPath.length) + '/' + file.split('.')[0]
+      let routeName = currentPath.length !== routersPath 
+        ? currentPath.substring(routersPath.length, currentPath.length) + '/' + file.split('.')[0]
         : '/' + file.split('.')[0];
       return router.use(routeName, require(currentPath + '/' + file));
     } else if (file.indexOf('.') === -1)
