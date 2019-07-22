@@ -13,17 +13,22 @@ const fs = require('fs');
  * @throws {object} - Returns -1 that indicates a fail
  *
  */
-const retrieveRouters = (router, routersPath, currentPath = false) => {
-  if (!currentPath)
-    currentPath = routersPath;
+const retrieveRouters = (router, routersPath, currentPath = routersPath) => {
   fs.readdirSync(currentPath).forEach(file => {
     if (file.indexOf('.js') !== -1) {
-      let routeName = currentPath.length !== routersPath 
-        ? currentPath.substring(routersPath.length, currentPath.length) + '/' + file.split('.')[0]
-        : '/' + file.split('.')[0];
-      return router.use(routeName, require(currentPath + '/' + file));
-    } else if (file.indexOf('.') === -1)
-      return retrieveRouters(router, routersPath, currentPath + '/' + file);
+      const routeName =
+        currentPath.length !== routersPath
+          ? `${currentPath.substring(routersPath.length, currentPath.length)}/${
+              file.split('.')[0]
+            }`
+          : `/${file.split('.')[0]}`;
+      /* eslint-disable-next-line global-require, import/no-dynamic-require */
+      router.use(routeName, require(`${currentPath}/${file}`));
+      return;
+    }
+    if (file.indexOf('.') === -1) {
+      retrieveRouters(router, routersPath, `${currentPath}/${file}`);
+    }
   });
   return router;
 };

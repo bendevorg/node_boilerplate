@@ -13,14 +13,16 @@ const fs = require('fs');
  *
  */
 module.exports = filename => {
-  const controllersPath = process.cwd() + `/server/controllers/${filename}`;
-  let controllers = [];
+  const controllersPath = `${process.cwd()}/server/controllers/${filename}`;
+  const controllers = [];
 
   try {
     // Get our routers
     fs.readdirSync(controllersPath).forEach(file => {
-      if (file.indexOf('.js') !== -1)
-        controllers[file.split('.')[0]] = require(controllersPath + '/' + file);
+      if (file.indexOf('.js') !== -1) {
+        /* eslint-disable-next-line global-require, import/no-dynamic-require */
+        controllers[file.split('.')[0]] = require(`${controllersPath}/${file}`);
+      }
     });
   } catch (err) {
     //  TODO: Throw error

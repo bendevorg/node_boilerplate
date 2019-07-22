@@ -13,14 +13,16 @@ const fs = require('fs');
  *
  */
 module.exports = filename => {
-  const schemasPath = process.cwd() + `/server/schemas/${filename}`;
-  let schemas = [];
+  const schemasPath = `${process.cwd()}/server/schemas/${filename}`;
+  const schemas = [];
 
   try {
     // Get our routers
     fs.readdirSync(schemasPath).forEach(file => {
-      if (file.indexOf('.js') !== -1)
-        schemas[file.split('.')[0]] = require(schemasPath + '/' + file);
+      if (file.indexOf('.js') !== -1) {
+        /* eslint-disable-next-line global-require, import/no-dynamic-require */
+        schemas[file.split('.')[0]] = require(`${schemasPath}/${file}`);
+      }
     });
   } catch (err) {
     //  TODO: Throw error

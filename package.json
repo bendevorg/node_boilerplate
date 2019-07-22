@@ -1,6 +1,6 @@
 {
   "name": "boilerplate",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -13,14 +13,16 @@
     "server_development": "nodemon tools/startServer.js",
     "test": "npm run env_setup_production && nyc --reporter=html --reporter=text mocha test/runTests.js --timeout 10000",
     "test_dev": "npm run env_setup_development && nyc --reporter=html --reporter=text mocha test/runTests.js --timeout 10000",
-    "coverage": "nyc report --reporter=text-lcov | codacy-coverage && rm -rf ./coverage"
+    "coverage": "nyc report --reporter=text-lcov | codacy-coverage && rm -rf ./coverage",
+    "apidoc": "apidoc -i server/controllers/ -o docs/",
+    "lint": "eslint --ignore-path .gitignore ."
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "dotenv": "^6.2.0",
-    "express": "4.16.4",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.0.0",
+    "express": "4.17.1",
     "joi": "14.3.1"
   },
   "devDependencies": {
@@ -28,15 +30,16 @@
     "chai": "4.2.0",
     "codacy-coverage": "3.4.0",
     "eslint": "5.14.1",
-    "eslint-config-airbnb-base": "13.1.0",
-    "eslint-plugin-import": "2.16.0",
-    "eslint-plugin-node": "8.0.1",
-    "eslint-plugin-promise": "4.0.1",
+    "eslint-config-airbnb-base": "13.2.0",
+    "eslint-config-prettier": "6.0.0",
+    "eslint-plugin-import": "2.18.0",
+    "eslint-plugin-node": "9.1.0",
+    "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-standard": "4.0.0",
-    "mocha": "6.0.2",
-    "morgan": "^1.9.0",
-    "nodemon": "^1.17.5",
-    "nyc": "13.3.0",
-    "supertest": "3.4.2"
+    "mocha": "6.1.4",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.1",
+    "nyc": "14.1.1",
+    "supertest": "4.0.2"
   }
 }
