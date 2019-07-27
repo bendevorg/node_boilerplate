@@ -1,9 +1,6 @@
 {
   "parserOptions": {
-    "ecmaVersion": 9,
-    "ecmaFeatures": {
-      "jsx": true
-    },
+    "ecmaVersion": 2019,
     "sourceType": "module"
   },
   "env": {
@@ -24,8 +21,11 @@
     "window": false
   },
   "rules": {
+    "curly": ["error", "all"],
     "import/no-extraneous-dependencies": "off",
+    "no-param-reassign": ["error", { "props": false }],
+    "no-underscore-dangle": "off",
     "node/no-unpublished-require": "off",
-    "curly": ["error", "all"]
+    "promise/no-callback-in-promise": "off"
   }
 }

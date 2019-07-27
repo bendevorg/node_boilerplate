@@ -1,0 +1,10 @@
+{
+  "name": "Boilerplate",
+  "version": "1.0.0",
+  "title": "Boilerplate",
+  "sampleUrl": "http://localhost:3100",
+  "header": {
+    "title": "Introduction",
+    "filename": "HEADER.md"
+  }
+}
