@@ -1,0 +1,45 @@
+version: '3'
+
+# Define services
+services:
+
+  # App Service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      DB_NAME: playground
+      DB_USERNAME: playground
+      DB_PASSWORD: playground
+      DB_HOST: postgres
+      REDIS_URL: redis
+    networks:
+      - backend
+
+  # Postgres Service
+  postgres:
+    image: "postgres:alpine"
+    restart: always
+    environment:
+      POSTGRES_USER: playground
+      POSTGRES_PASSWORD: playground
+      POSTGRES_DB: playground
+    networks:
+      - backend
+
+  # Redis Service   
+  redis:
+    image: "redis:alpine" 
+    restart: unless-stopped
+    networks:
+      - backend
+
+# Networks to be created for communication between containers
+networks:
+  backend:
