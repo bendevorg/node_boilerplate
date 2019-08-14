@@ -17,7 +17,7 @@
     "docker_test": "docker-compose build --build-arg environment=test && docker-compose up --abort-on-container-exit",
     "coverage": "nyc report --reporter=text-lcov | codacy-coverage && rm -rf ./coverage",
     "apidoc": "apidoc -i server/controllers/ -o docs/",
-    "lint": "eslint --ignore-path .gitignore ."
+    "lint": "eslint ."
   },
   "author": "",
   "license": "ISC",
