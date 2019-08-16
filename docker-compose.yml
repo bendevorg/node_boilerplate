@@ -19,6 +19,8 @@ services:
       DB_PASSWORD: playground
       DB_HOST: postgres
       REDIS_URL: redis
+    volumes:
+      - ./coverage:/app/coverage
     networks:
       - backend
 
