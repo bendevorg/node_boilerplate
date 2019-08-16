@@ -12,6 +12,7 @@ const api = supertest(app);
 const path = `/v1/example/hey`;
 
 module.exports = describe(`Hey V1`, () => {
+  let example = faker.random.word();
 
   it(`Should receive 400 when no example is sent`, done => {
     api
@@ -64,13 +65,29 @@ module.exports = describe(`Hey V1`, () => {
     api
       .post(path)
       .send({
-        example: faker.random.word(),
+        example,
       })
       .end((err, res) => {
         if (err) {
           done(err);
         } else {
           expect(res.status, 'Status').to.equal(200);
+          done();
+        }
+      });
+  });
+
+  it(`Should receive 400 when example is sent as a string but it is duplicated`, done => {
+    api
+      .post(path)
+      .send({
+        example,
+      })
+      .end((err, res) => {
+        if (err) {
+          done(err);
+        } else {
+          expect(res.status, 'Status').to.equal(400);
           done();
         }
       });
