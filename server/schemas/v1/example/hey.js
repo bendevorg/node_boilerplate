@@ -5,13 +5,10 @@ const schema = joi.object().keys({
 });
 
 module.exports = (req, res, next) => {
-  joi.validate(req.body, schema, (err, value) => {
+  joi.validate(req.body, schema, err => {
     if (!err) {
       return next();
-    } else {
-      return res.status(400).json({
-        data: err.details[0].message
-      });
     }
+    return next(err);
   });
 };
