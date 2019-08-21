@@ -76,21 +76,4 @@ module.exports = describe(`Hey V1`, () => {
         }
       });
   });
-
-  it(`Should receive 400 when example is sent as a string but it is duplicated`, done => {
-    api
-      .post(path)
-      .send({
-        example,
-      })
-      .end((err, res) => {
-        if (err) {
-          done(err);
-        } else {
-          expect(res.status, 'Status').to.equal(400);
-          done();
-        }
-      });
-  });
-
 });
