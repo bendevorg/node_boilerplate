@@ -5,9 +5,9 @@ const retrieveSchemas = require('../../../utils/retrieveSchemas');
 const router = express.Router();
 
 const controllers = retrieveControllers(
-  __filename.split('/routers')[1].split('.')[0]
+  __filename.split(/\\routers|\/routers/)[1].split('.')[0]
 );
-const schemas = retrieveSchemas(__filename.split('/routers')[1].split('.')[0]);
+const schemas = retrieveSchemas(__filename.split(/\\routers|\/routers/)[1].split('.')[0]);
 
 //  Notification APIs
 router.get('/hi', controllers.hi);
