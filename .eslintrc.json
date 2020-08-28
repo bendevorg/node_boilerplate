@@ -1,19 +1,26 @@
 {
+  "root": true,
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2019,
-    "sourceType": "module"
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
   },
   "env": {
     "es6": true,
     "node": true
   },
+  "plugins": [
+    "@typescript-eslint"
+  ],
   "extends": [
-    "airbnb-base",
-    "plugin:node/recommended",
+    "airbnb-typescript/base",
+    "prettier",
+    "prettier/@typescript-eslint",
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:promise/recommended",
-    "prettier"
+    "plugin:prettier/recommended"
   ],
   "globals": {
     "document": false,
@@ -21,11 +28,39 @@
     "window": false
   },
   "rules": {
-    "curly": ["error", "all"],
+    "curly": [
+      "error",
+      "all"
+    ],
     "import/no-extraneous-dependencies": "off",
-    "no-param-reassign": ["error", { "props": false }],
+    "no-param-reassign": [
+      "error",
+      {
+        "props": false
+      }
+    ],
     "no-underscore-dangle": "off",
     "node/no-unpublished-require": "off",
-    "promise/no-callback-in-promise": "off"
+    "promise/no-callback-in-promise": "off",
+    "no-plusplus": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "_next" }]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    }
   }
 }

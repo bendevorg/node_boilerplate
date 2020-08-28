@@ -1,2 +1,5 @@
-/test
-/docs
+node_modules
+test
+docs
+dist
+coverage
