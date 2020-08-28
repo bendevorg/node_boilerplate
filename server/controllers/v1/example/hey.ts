@@ -18,8 +18,10 @@
   *
  */
 
-module.exports = (req, res) => {
+import { Request, Response } from 'express';
+
+export default (_req: Request, res: Response) => {
   return res.status(200).json({
-    msg: 'Hey'
+    msg: 'Hey',
   });
 };

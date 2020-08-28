@@ -1,13 +1,17 @@
+/* eslint-disable no-console */
+
 const dotenv = require('dotenv');
+
 dotenv.config();
 
 const app =
-  process.env.NODE_ENV == 'production'
+  process.env.NODE_ENV === 'production'
     ? require('./serverProduction')
     : require('./serverDevelopment');
+
 const { PORT } = process.env;
 
-app.listen(PORT, error => {
+app.listen(PORT, (error: Error) => {
   if (error) {
     console.log(error);
   } else {

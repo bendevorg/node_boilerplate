@@ -4,6 +4,7 @@ setup() {
   cd github/$1
   git pull
   npm install
+  npm run build
 }
 
 update_server() {
