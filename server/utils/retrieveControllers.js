@@ -3,6 +3,7 @@
  * @module utils/retrieveControllers
  */
 const fs = require('fs');
+const logger = require('log-champ');
 
 /**
  * Retrieve controllers
@@ -25,7 +26,7 @@ module.exports = filename => {
       }
     });
   } catch (err) {
-    //  TODO: Throw error
+    logger.error(err);
   }
 
   return controllers;

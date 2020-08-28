@@ -3,6 +3,7 @@
  * @module utils/retrieveSchemas
  */
 const fs = require('fs');
+const logger = require('log-champ');
 
 /**
  * Retrieve schemas
@@ -25,7 +26,7 @@ module.exports = filename => {
       }
     });
   } catch (err) {
-    //  TODO: Throw error
+    logger.error(err);
   }
 
   return schemas;
