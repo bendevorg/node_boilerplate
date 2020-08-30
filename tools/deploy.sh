@@ -9,7 +9,7 @@ setup() {
 
 update_server() {
   echo "Restart server"
-  pm2 start --name $1 npm -- run $2
+  pm2 start --name $1 --log ../log-watcher/logs/$1.log npm -- run $2
 }
 
 create_folder $1 $2 $3
