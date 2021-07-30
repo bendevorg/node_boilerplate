@@ -2,14 +2,13 @@ version: '3'
 
 # Define services
 services:
-
   # App Service
   app:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - '8080:8080'
     depends_on:
       - postgres
       - redis
@@ -26,7 +25,7 @@ services:
 
   # Postgres Service
   postgres:
-    image: "postgres:alpine"
+    image: 'postgres:alpine'
     restart: always
     environment:
       POSTGRES_USER: playground
@@ -35,9 +34,9 @@ services:
     networks:
       - backend
 
-  # Redis Service   
+  # Redis Service
   redis:
-    image: "redis:alpine" 
+    image: 'redis:alpine'
     restart: unless-stopped
     networks:
       - backend
