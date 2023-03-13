@@ -33,7 +33,7 @@ export default (filename: string) => {
         controllers[file.split('.')[0]] = module;
       }
     });
-  } catch (err) {
+  } catch (err: any) {
     logger.error(err);
   }
 
